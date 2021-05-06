@@ -31,6 +31,6 @@ body { margin:10px;
     color: #000000;
 }
 
-.btn{
-  background-image: "../images/boton_off";
+#buttons{
+  display:none;
 }

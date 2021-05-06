@@ -12,6 +12,7 @@ function initCanvas(){
     var jugar= new Image();
     var creditos= new Image();
     
+    
 
     backgroundImage.src = "images/calle.png";
     auto_player.src       = "images/car_azul.png";
@@ -23,8 +24,7 @@ function initCanvas(){
     auto_camion.src     = "images/car_camion.png";
     auto_ambulancia.src     = "images/car_ambulancia.png";
     perdiste.src= "images/perdiste.png";
-    jugar.src="images/boton_off.png";
-    creditos.src="images/creditos.png";
+
 
     var enemies=[];
     
@@ -113,7 +113,6 @@ function initCanvas(){
             ctx.drawImage(auto_player,this.x,this.y, 57, 100);
             
             
-            
         }
         
        //colisión
@@ -122,11 +121,8 @@ function initCanvas(){
                 (enemy[0].x < this.x + 56 && enemy[0].x > this.x - 56)) { 
                     this.gameStatus.over = true;
                     
-                    ctx.drawImage(perdiste,53,180, 473, 333);
-                    ctx.drawImage(jugar,90,450, 194, 40);
-                    ctx.drawImage(creditos,290,450, 194, 40);
-                    
-                    
+                    document.getElementById("hide").classList.remove("invisible");
+
                 }
 
             if(this.gameStatus.over === true){  
