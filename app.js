@@ -42,13 +42,13 @@ function initCanvas(){
         }
     }
   
-    var numEnemigos=120;        
+    var numEnemigos=220;        
     
     for(var i=0; i<numEnemigos;i++){
         var tipoEnemigo= Math.floor(Math.random() * (100 - 1)+1);
         console.log(tipoEnemigo)
         var posicionX= Math.floor(Math.random() * (572-0));
-        var posicionY= Math.floor(Math.random() * (-10000-500));
+        var posicionY= Math.floor(Math.random() * (-20000-500));
         
         if(tipoEnemigo<=25){
             enemyType=auto_verde;
@@ -109,6 +109,13 @@ function initCanvas(){
                 this.x+=2;
             }
             
+            else if(this.direccion === "downArrow"){
+            this.y+=2;
+            }
+            else if(this.direccion === "upArrow"){
+            this.y-=2;
+        }
+
             ctx.drawImage(backgroundImage, 0, 0); 
             ctx.drawImage(auto_player,this.x,this.y, 57, 100);
             
@@ -117,7 +124,7 @@ function initCanvas(){
         
        //colisión
         this.hitDetectLowerLevel = function(enemy){
-            if ((enemy[0].y < this.y + 110 && enemy[0].y > this.y - 120) &&
+            if ((enemy[0].y < this.y + 100 && enemy[0].y > this.y - 120) &&
                 (enemy[0].x < this.x + 56 && enemy[0].x > this.x - 56)) { 
                     this.gameStatus.over = true;
                     
@@ -183,6 +190,43 @@ function initCanvas(){
         }
     }); 
 
+
+    document.addEventListener('keydown', function(event){
+        if(event.keyCode == 38) // up arrow
+        {
+          launcher.direccion = 'upArrow';  
+          if(launcher.y < cH*.2-80){
+             launcher.y += 0;
+             launcher.direccion = '';
+           }
+        }
+   });
+
+   document.addEventListener('keyup', function(event){
+        if(event.keyCode == 38) // up arrow
+        {
+          launcher.y -= 0;
+          launcher.direccion = '';
+        }
+   });
+
+   document.addEventListener('keydown', function(event){
+        if(event.keyCode == 40) // down arrow
+        {
+          launcher.direccion = 'downArrow';  
+         if(launcher.y > cH - 110){
+           launcher.y -= 0;
+           launcher.direccion = '';
+          }
+        }
+   });
+   document.addEventListener('keyup', function(event){
+        if(event.keyCode == 40) // down arrow
+        {
+          launcher.y += 0;
+          launcher.direccion = '';
+        }
+   });
     
 }
 
