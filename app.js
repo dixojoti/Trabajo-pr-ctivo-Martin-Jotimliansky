@@ -59,10 +59,10 @@ function initCanvas(){
         else if(tipoEnemigo>=37 && tipoEnemigo<=50 ){
             enemyType=auto_ambulancia
     }    
-    else if(tipoEnemigo>=51 && tipoEnemigo<=56 ){
+    else if(tipoEnemigo>=51 && tipoEnemigo<=53 ){
         enemyType=auto_fachero
     }    
-    else if(tipoEnemigo>=57 && tipoEnemigo<=87 ){
+    else if(tipoEnemigo>=54 && tipoEnemigo<=85 ){
         enemyType=auto_violeta
     }    
     else if(tipoEnemigo>=88 && tipoEnemigo<=100 ){
